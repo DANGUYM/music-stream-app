@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 
-function FeedScreen() {
+function LibraryStack() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Feed Screen</Text>
+      <Text>Library Screen</Text>
     </View>
   );
 }
 
-export default FeedScreen;
+export default LibraryStack;
