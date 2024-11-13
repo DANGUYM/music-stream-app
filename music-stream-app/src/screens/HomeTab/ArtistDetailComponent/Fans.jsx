@@ -1,9 +1,9 @@
 import { View, Text, Pressable, FlatList, Image } from 'react-native'
 import React, { useState } from 'react'
 
-export default function Trending() {
+export default function Fans() {
 
-    const [trending, setTrending] = useState([
+    const [fans, setFans] = useState([
         {
             id: 1,
             nameAlbum: 'ME',
@@ -35,15 +35,10 @@ export default function Trending() {
                     fontSize: 20,
                     fontWeight: 'bold',
                     marginBottom: 10
-                }}>Trendings albums</Text>
-                <Pressable>
-                    <Text style={{
-                        color: 'gray'
-                    }}>See all</Text>
-                </Pressable>
+                }}>Fans also like</Text>
             </View>
             <FlatList
-                data={trending}
+                data={fans}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item, index }) => (

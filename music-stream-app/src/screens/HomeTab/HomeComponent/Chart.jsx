@@ -1,12 +1,9 @@
 import { View, Text, Touchable, Pressable, Image, FlatList } from 'react-native'
 import React, { useState } from 'react'
-// import { useNavigation, useRouter } from 'expo-router'
 import { TouchableOpacity } from 'react-native';
 
 export default function Chart({ navigation }) {
 
-    // const router = useRouter();
-    // const navigation = useNavigation();
 
     const [chart, setChart] = useState([
         {

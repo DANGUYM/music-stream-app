@@ -9,11 +9,10 @@ import Artist from './Artist'
 
 
 
-export default function Index({navigation, toggleModal}) {
+export default function Index({ navigation, toggleModal }) {
     return (
         <View style={{
             padding: 20,
-            marginTop: 20,
         }}>
             {/* header */}
             <Header toggleModal={toggleModal} />
@@ -34,7 +33,7 @@ export default function Index({navigation, toggleModal}) {
 
                 {/* artists */}
 
-                <Artist />
+                <Artist navigation={navigation} />
             </ScrollView>
         </View>
     )

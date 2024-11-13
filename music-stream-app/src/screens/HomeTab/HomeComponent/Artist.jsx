@@ -1,7 +1,7 @@
-import { View, Text, Pressable, FlatList, Image } from 'react-native'
+import { View, Text, Pressable, FlatList, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 
-export default function Artist() {
+export default function Artist({ navigation }) {
 
     const [artists, setArtists] = useState([
         {
@@ -52,13 +52,17 @@ export default function Artist() {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
-                        <Image source={item.image}
-                        />
-                        <Text style={{
-                            color: 'gray',
-                            fontWeight: 'bold',
-                            marginTop: 10
-                        }}>{item.name}</Text>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('ArtistDetailComponent')}
+                        >
+                            <Image source={item.image}
+                            />
+                            <Text style={{
+                                color: 'gray',
+                                fontWeight: 'bold',
+                                marginTop: 10
+                            }}>{item.name}</Text>
+                        </TouchableOpacity>
                         <Pressable style={{
                             backgroundColor: '#000000',
                             padding: 10,
