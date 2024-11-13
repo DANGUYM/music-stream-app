@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
 import Header from './Header';
-import Playlist from './PlayList';
+import Playlist from '../ChartDetailComponent/Playlist';
 
 
 export default function ChartDetails({ navigation }) {

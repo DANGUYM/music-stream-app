@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import Header from './Header'
-import Playlist from './Playlist'
+import Playlist from '../ArtistDetailComponent/Playlist'
 import Albums from './Albums'
 import About from './About'
 import Fans from './Fans'

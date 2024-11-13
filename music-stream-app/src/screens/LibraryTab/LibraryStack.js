@@ -1,11 +1,22 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import YourLibrary from './YourLibrary/YourLibrary';
+import ListLibrary from './ListLibrary/ListLibrary';
+
+
+const Stack = createStackNavigator();
 
 function LibraryStack() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Library Screen</Text>
-    </View>
+
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="YourLibrary" component={YourLibrary}  options={{headerShown: false}} />
+        <Stack.Screen name="ListLibrary" component={ListLibrary}  options={{headerShown: false}} />
+
+      </Stack.Navigator>      
+
+
   );
 }
 
