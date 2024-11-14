@@ -1,5 +1,5 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import Title from './Title'
 import Suggestion from './Suggestion'
@@ -8,8 +8,8 @@ import Trending from './Trending'
 import Artist from './Artist'
 
 
-
 export default function Index({ navigation, toggleModal }) {
+
     return (
         <View style={{
             padding: 20,

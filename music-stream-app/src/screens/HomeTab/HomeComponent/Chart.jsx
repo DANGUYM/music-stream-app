@@ -1,24 +1,28 @@
 import { View, Text, Touchable, Pressable, Image, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native';
+import { getDatabase, onValue, ref } from 'firebase/database';
+
 
 export default function Chart({ navigation }) {
 
+    const [chart, setChart] = useState([]);
 
-    const [chart, setChart] = useState([
-        {
-            id: 1,
-            image: require('../../../img/Home - Audio Listing/Container 31.png'),
-        },
-        {
-            id: 2,
-            image: require('../../../img/Home - Audio Listing/Container 32.png'),
-        },
-        {
-            id: 3,
-            image: require('../../../img/Home - Audio Listing/Container 33.png'),
-        },
-    ])
+    const readData = () => {
+        const db = getDatabase();
+        const dbRef = ref(db, 'charts');
+
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val().filter(item => item !== undefined);
+            setChart(data);
+        });
+    };
+
+
+    useEffect(() => {
+        readData();
+        console.log(chart);
+    }, [])
 
     return (
         <View
@@ -52,10 +56,12 @@ export default function Chart({ navigation }) {
                             width: 150,
                             justifyContent: 'center',
                         }}>
-                        <Image source={item.image}
+                        <Image
+                            source={{ uri: item.image }}
+                            style={{ width: 130, height: 130 }}
                         />
                         <Text style={{
-                        }}>Daily chart-toppers update</Text>
+                        }}> {item.description} </Text>
                     </TouchableOpacity>
                 )}
             />
