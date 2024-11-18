@@ -2,7 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export default function Header() {
+export default function Header({ item }) {
     return (
         <View style={{
             marginTop: 20,
@@ -12,13 +12,17 @@ export default function Header() {
             <View style={{
                 marginRight: 10,
             }}>
-                <Image source={require("../../../img/Playlist Details - Audio Listing/Image 50.png")} />
+                <Image source={{ uri: item.image }} style={{
+                    width: 150,
+                    height: 150,
+                    borderRadius: 10,
+                }} />
             </View>
             <View>
                 <Text style={{
                     fontSize: 20,
                     fontWeight: 'bold',
-                }}>Top 50 - Canada</Text>
+                }}> {item.name} </Text>
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -29,7 +33,7 @@ export default function Header() {
                     <Text>1,234</Text>
                     <Text>05:10:18</Text>
                 </View>
-                <Text>Daily chart-toppers update</Text>
+                <Text> {item.description} </Text>
             </View>
         </View>
     )

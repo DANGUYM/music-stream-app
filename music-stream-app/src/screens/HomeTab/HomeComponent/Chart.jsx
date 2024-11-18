@@ -50,7 +50,7 @@ export default function Chart({ navigation }) {
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item, index }) => (
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('ChartDetailComponent')}
+                        onPress={() => navigation.navigate('ChartDetailComponent', { item: item })}
                         style={{
                             marginRight: 10,
                             width: 150,

@@ -2,10 +2,13 @@ import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
 import Header from './Header';
 import Playlist from '../ChartDetailComponent/Playlist';
+import { useRoute } from '@react-navigation/native';
 
 
 export default function ChartDetails({ navigation }) {
 
+    const route = useRoute();
+    const { item } = route.params;
 
     useEffect(() => {
         navigation.setOptions({
@@ -22,9 +25,9 @@ export default function ChartDetails({ navigation }) {
             flex: 1,
         }} >
             {/* header */}
-            <Header />
+            <Header item={item} />
             {/* List songs*/}
-            <Playlist />
+            <Playlist item={item.songs} />
         </View>
     )
 }
