@@ -1,5 +1,5 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import Title from './Title'
 import Suggestion from './Suggestion'
@@ -8,12 +8,11 @@ import Trending from './Trending'
 import Artist from './Artist'
 
 
+export default function Index({ navigation, toggleModal }) {
 
-export default function Index({navigation, toggleModal}) {
     return (
         <View style={{
             padding: 20,
-            marginTop: 20,
         }}>
             {/* header */}
             <Header toggleModal={toggleModal} />
@@ -22,7 +21,7 @@ export default function Index({navigation, toggleModal}) {
                 <Title />
 
                 {/* suggestion */}
-                <Suggestion />
+                <Suggestion/>
 
                 {/* chart */}
 
@@ -34,7 +33,7 @@ export default function Index({navigation, toggleModal}) {
 
                 {/* artists */}
 
-                <Artist />
+                <Artist navigation={navigation} />
             </ScrollView>
         </View>
     )
