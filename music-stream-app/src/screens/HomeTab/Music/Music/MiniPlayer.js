@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { MusicContext } from '../Music/MusicContext';
-import { ThemeContext } from '../../../Context/ThemeContext';
+import { ThemeContext } from '../../../../context/ThemeContext';
 import VisualizerCurrentSong from '../Visualizer/VisualizerCurrentSong';
 
 

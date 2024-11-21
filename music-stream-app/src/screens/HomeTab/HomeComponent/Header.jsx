@@ -2,7 +2,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React, { useContext } from 'react';
 import Feather from '@expo/vector-icons/Feather';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Header({ toggleModal }) {
   const { darkMode } = useContext(ThemeContext);
@@ -13,9 +13,10 @@ export default function Header({ toggleModal }) {
       justifyContent: 'space-between',
       alignItems: 'center',
     //   backgroundColor: darkMode ? '#333' : '#fff',
+    marginBottom: 10,
     }}>
       <View>
-        <Image source={require('../../../img/Home - Audio Listing/Image 36.png')}
+        <Image source={require('../../../../assets/img/Home - Audio Listing/Image 36.png')}
           style={{
             width: 40,
             height: 40
@@ -31,7 +32,7 @@ export default function Header({ toggleModal }) {
         }} />
         <TouchableOpacity onPress={toggleModal}>
           <Image
-            source={require('../../../img/Home - Audio Listing/Avatar 3.png')}
+            source={require('../../../../assets/img/Home - Audio Listing/Avatar 3.png')}
             style={{ width: 40, height: 40 }}
           />
         </TouchableOpacity>

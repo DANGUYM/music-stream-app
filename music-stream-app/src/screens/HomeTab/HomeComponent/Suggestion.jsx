@@ -2,7 +2,7 @@
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Suggestion({ navigation }) {
   const { darkMode } = useContext(ThemeContext);
@@ -10,11 +10,11 @@ export default function Suggestion({ navigation }) {
   const [suggestion, setSuggestion] = useState([
     {
       id: 1,
-      image: require('../../../img/Home - Audio Listing/Container 26.png'),
+      image: require('../../../../assets/img/Home - Audio Listing/Container 26.png'),
     },
     {
       id: 2,
-      image: require('../../../img/Home - Audio Listing/Container 27.png'),
+      image: require('../../../../assets/img/Home - Audio Listing/Container 27.png'),
     },
   ]);
 

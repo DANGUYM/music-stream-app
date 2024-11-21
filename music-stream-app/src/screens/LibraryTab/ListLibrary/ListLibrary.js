@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import songs from '../../HomeTab/ChartDetailComponent/songsData';
+import songs from '../../../context/songsData';
 import Header from './Header';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 const ListLibrary = ({ navigation, route }) => {
   const { darkMode } = useContext(ThemeContext);

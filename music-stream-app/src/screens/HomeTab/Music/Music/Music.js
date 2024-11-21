@@ -4,7 +4,7 @@ import { View, Text, Image, ImageBackground, FlatList, StyleSheet, TouchableOpac
 import Slider from '@react-native-community/slider';
 import { Audio } from 'expo-av';
 import Icon from 'react-native-vector-icons/Feather';
-import songs from '../../ChartDetailComponent/songsData';
+import songs from '../../../../context/songsData';
 import VisualizerTop from '../Visualizer/VisualizerTop';
 import VisualizerBottom from '../Visualizer/VisualizerBottom';
 import VisualizerLeft from '../Visualizer/VisualizerLeft';

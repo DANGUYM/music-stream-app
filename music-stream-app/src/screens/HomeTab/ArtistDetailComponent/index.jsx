@@ -7,7 +7,7 @@ import Playlist from '../ArtistDetailComponent/Playlist';
 import Albums from './Albums';
 import About from './About';
 import Fans from './Fans';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function ArtistDetails({ navigation }) {
   const { darkMode } = useContext(ThemeContext);

@@ -2,7 +2,7 @@
 
 import { View, Text, Image } from 'react-native';
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Header() {
   const { darkMode } = useContext(ThemeContext);
@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center', marginTop:10 }}>
       <View>
-        <Image source={require('../../../img/Artist Profile/Image 63.png')} />
+        <Image source={require('../../../../assets/img/Artist Profile/Image 63.png')} />
       </View>
       <Text style={{ fontSize: 20, fontWeight: 'bold', marginTop: 10, color: darkMode ? '#fff' : '#000' }}>
         Ryan Young

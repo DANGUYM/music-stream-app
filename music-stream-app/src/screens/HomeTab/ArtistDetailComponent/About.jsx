@@ -4,7 +4,7 @@
 import { View, Text, Image } from 'react-native';
 import React, { useState, useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function About() {
   const { darkMode } = useContext(ThemeContext);
@@ -21,7 +21,7 @@ export default function About() {
 
       <View>
         <View>
-          <Image source={require('../../../img/Artist Profile/Image 73.png')} />
+          <Image source={require('../../../../assets/img/Artist Profile/Image 73.png')} />
         </View>
         <Text
           style={{ marginTop: 10, color: 'gray' }}

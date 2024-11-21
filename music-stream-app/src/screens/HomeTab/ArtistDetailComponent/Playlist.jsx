@@ -5,7 +5,7 @@ import React, { useState, useContext } from 'react';
 import Feather from '@expo/vector-icons/Feather';
 import Entypo from '@expo/vector-icons/Entypo';
 import { TouchableOpacity } from 'react-native';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Playlist() {
   const { darkMode } = useContext(ThemeContext);
@@ -17,7 +17,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 2,
@@ -25,7 +25,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 5,
@@ -49,7 +49,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 7,
@@ -65,7 +65,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 8,
@@ -73,7 +73,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 9,
@@ -81,7 +81,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
     {
         id: 10,
@@ -89,7 +89,7 @@ export default function Playlist() {
         artist: 'Artist 1',
         duration: '3:36',
         fileSize: '5.2 MB',
-        image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
+        image: require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png'),
     },
 
 ]);
@@ -114,7 +114,7 @@ export default function Playlist() {
         </View>
         <View style={{ flexDirection: 'row', gap: 30, alignItems: 'center' }}>
           <Entypo name="share" size={24} color={darkMode ? '#fff' : 'black'} />
-          <Image source={require('../../../img/Playlist Details - Audio Listing/Icon Button 2.png')} />
+          <Image source={require('../../../../assets/img/Playlist Details - Audio Listing/Icon Button 2.png')} />
         </View>
       </View>
 
@@ -131,7 +131,7 @@ export default function Playlist() {
         renderItem={({ item, index }) => (
           <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 7 }}>
             <View style={{ marginRight: 10 }}>
-              <Image source={require('../../../img/Playlist Details - Audio Listing/Image 54.png')} />
+              <Image source={require('../../../../assets/img/Playlist Details - Audio Listing/Image 54.png')} />
             </View>
             <View>
               <Text style={{ fontSize: 20, color: darkMode ? '#fff' : '#000' }}>{item.title}</Text>

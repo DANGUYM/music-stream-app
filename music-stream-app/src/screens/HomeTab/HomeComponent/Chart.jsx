@@ -3,7 +3,7 @@
 import { View, Text, TouchableOpacity, Pressable, Image, FlatList } from 'react-native';
 import React, { useEffect, useState, useContext } from 'react';
 import { getDatabase, onValue, ref } from 'firebase/database';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Chart({ navigation }) {
   const [chart, setChart] = useState([]);

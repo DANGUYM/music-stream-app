@@ -5,7 +5,7 @@ import React, { useEffect, useContext } from 'react';
 import Header from './Header';
 import Playlist from '../ChartDetailComponent/Playlist';
 import { useRoute } from '@react-navigation/native';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function ChartDetails({ navigation }) {
   const route = useRoute();

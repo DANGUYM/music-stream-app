@@ -231,7 +231,7 @@ import LibraryStack from './src/screens/LibraryTab/LibraryStack';
 import LaunchScreen from './src/screens/LaunchScreen/LaunchScreen';
 
 import { MusicProvider } from './src/screens/HomeTab/Music/Music/MusicContext';
-import { ThemeProvider, ThemeContext } from './src/screens/Context/ThemeContext';
+import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
 
 import { initializeApp } from 'firebase/app';
 

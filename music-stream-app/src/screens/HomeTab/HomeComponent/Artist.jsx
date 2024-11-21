@@ -1,7 +1,7 @@
 
 import { View, Text, Pressable, FlatList, Image, TouchableOpacity } from 'react-native';
 import React, { useState, useContext } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Artist({ navigation }) {
   const { darkMode } = useContext(ThemeContext);
@@ -9,17 +9,17 @@ export default function Artist({ navigation }) {
   const [artists, setArtists] = useState([
     {
       id: 1,
-      image: require('../../../img/Home - Audio Listing/Image 39.png'),
+      image: require('../../../../assets/img/Home - Audio Listing/Image 39.png'),
       name: 'Jennifer Wilson',
     },
     {
       id: 2,
-      image: require('../../../img/Home - Audio Listing/Image 40.png'),
+      image: require('../../../../assets/img/Home - Audio Listing/Image 40.png'),
       name: 'Elizabeth Hall',
     },
     {
       id: 3,
-      image: require('../../../img/Home - Audio Listing/Image 41.png'),
+      image: require('../../../../assets/img/Home - Audio Listing/Image 41.png'),
       name: 'Billie Eilish',
     },
   ]);

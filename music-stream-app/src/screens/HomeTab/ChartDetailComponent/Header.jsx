@@ -3,7 +3,7 @@
 import { View, Text, Image } from 'react-native';
 import React, { useContext } from 'react';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Header({ item }) {
   const { darkMode } = useContext(ThemeContext);

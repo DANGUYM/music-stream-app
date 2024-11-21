@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import Entypo from '@expo/vector-icons/Entypo';
-import songs from './songsData';
+import songs from '../../../context/songsData';
 import VisualizerCurrentSong from '../Music/Visualizer/VisualizerCurrentSong';
 import { MusicContext } from '../Music/Music/MusicContext';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Playlist({ navigation }) {
   const [playlist, setPlaylist] = useState([]);
@@ -27,7 +27,7 @@ export default function Playlist({ navigation }) {
           </View>
           <View style={{ flexDirection: 'row', gap: 30, alignItems: 'center' }}>
             <Entypo name="share" size={24} color={darkMode ? '#fff' : 'black'} />
-            <Image source={require("../../../img/Playlist Details - Audio Listing/Icon Button 2.png")} />
+            <Image source={require("../../../../assets/img/Playlist Details - Audio Listing/Icon Button 2.png")} />
           </View>
         </View>
         <FlatList

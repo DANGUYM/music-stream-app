@@ -5,7 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Animated } from 'react-native';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 
 export default function ListFeed() {
@@ -16,8 +16,8 @@ export default function ListFeed() {
             id: 1,
             nameArtist: 'Jessica Gonzalez',
             time: '3d',
-            image: require('../../../img/Feed - Audio Listing/Avatar 4.png'),
-            imageBackground: require('../../../img/Feed - Audio Listing/Image 93.png'),
+            image: require('../../../../assets/img/Feed - Audio Listing/Avatar 4.png'),
+            imageBackground: require('../../../../assets/img/Feed - Audio Listing/Image 93.png'),
             title: 'FLOWER',
             views: '125',
             duration: '05:15',
@@ -29,8 +29,8 @@ export default function ListFeed() {
             id: 2,
             nameArtist: 'William King',
             time: '5d',
-            image: require('../../../img/Feed - Audio Listing/Avatar 5.png'),
-            imageBackground: require('../../../img/Feed - Audio Listing/Image 94.png'),
+            image: require('../../../../assets/img/Feed - Audio Listing/Avatar 5.png'),
+            imageBackground: require('../../../../assets/img/Feed - Audio Listing/Image 94.png'),
             title: 'Me',
             views: '245',
             duration: '05:15',
@@ -174,7 +174,7 @@ export default function ListFeed() {
                                                 flexDirection: 'row',
                                                 alignItems: 'center',
                                             }}>
-                                                <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 8.png')}
+                                                <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 8.png')}
                                                     style={{
                                                         width: 50,
                                                         height: 50,
@@ -221,7 +221,7 @@ export default function ListFeed() {
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 50,
                                                             height: 50,
@@ -267,7 +267,7 @@ export default function ListFeed() {
                                                     alignItems: 'center',
                                                     marginLeft: 60,
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 30,
                                                             height: 30,
@@ -326,7 +326,7 @@ export default function ListFeed() {
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 11.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 11.png')}
                                                         style={{
                                                             width: 50,
                                                             height: 50,
@@ -373,7 +373,7 @@ export default function ListFeed() {
                                                     alignItems: 'center',
                                                     marginLeft: 60,
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 30,
                                                             height: 30,
@@ -428,7 +428,7 @@ export default function ListFeed() {
                                                 flexDirection: 'row',
                                                 marginTop: 20,
                                             }}>
-                                                <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 13.png')} />
+                                                <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 13.png')} />
                                                 <View style={{
                                                     flexDirection: 'row',
                                                     marginLeft: 10,

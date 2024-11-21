@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useContext } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Header({ navigation }) {
   const { darkMode } = useContext(ThemeContext);
@@ -12,7 +12,7 @@ export default function Header({ navigation }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="arrow-left" size={24} color={darkMode ? '#fff' : '#000'} />
         </TouchableOpacity>
-        <Text style={{ fontSize: 20, fontWeight: 'bold', color: darkMode ? '#fff' : '#000' }}>Playlist</Text>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: darkMode ? '#fff' : '#000' }}>Library</Text>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="cast" size={24} color={darkMode ? '#fff' : '#000'} />
         </TouchableOpacity>

@@ -2,7 +2,7 @@
 
 import { View, Text, Pressable, FlatList, Image } from 'react-native';
 import React, { useState, useContext } from 'react';
-import { ThemeContext } from '../../Context/ThemeContext';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function Albums() {
   const { darkMode } = useContext(ThemeContext);
@@ -12,19 +12,19 @@ export default function Albums() {
         id: 1,
         nameAlbum: 'ME',
         nameArtist: 'Jessica Gonzalez',
-        image: require('../../../img/Home - Audio Listing/Image 45.png'),
+        image: require('../../../../assets/img/Home - Audio Listing/Image 45.png'),
     },
     {
         id: 2,
         nameAlbum: 'Magna nost',
         nameArtist: 'Brian Thomas',
-        image: require('../../../img/Home - Audio Listing/Image 46.png'),
+        image: require('../../../../assets/img/Home - Audio Listing/Image 46.png'),
     },
     {
         id: 3,
         nameAlbum: 'ME',
         nameArtist: 'Jessica Gonzalez',
-        image: require('../../../img/Home - Audio Listing/Image 47.png'),
+        image: require('../../../../assets/img/Home - Audio Listing/Image 47.png'),
     },
 ]);
 
