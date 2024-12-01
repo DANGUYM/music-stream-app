@@ -1,24 +1,28 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 
-export default function Header() {
+export default function Header({ item }) {
     return (
         <View style={{
             justifyContent: 'center',
             alignItems: 'center',
         }}>
             <View>
-                <Image source={require('../../../img/Artist Profile/Image 63.png')} />
+                <Image source={{ uri: item.image }} style={{
+                    width: 200,
+                    height: 200,
+                    borderRadius: 100,
+                }} />
             </View>
             <Text style={{
                 fontSize: 20,
                 fontWeight: 'bold',
                 marginTop: 10,
-            }}>Ryan Young</Text>
+            }}> {item.name} </Text>
             <Text style={{
                 color: 'gray',
                 marginTop: 5,
-            }}>65.1K Follower</Text>
+            }}> {item.follow / 1000}K Follower</Text>
         </View>
     )
 }

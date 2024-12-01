@@ -85,6 +85,7 @@ function App() {
     if (app) {
       console.log('Firebase initialized');
     }
+
   }, [])
 
 

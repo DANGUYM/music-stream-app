@@ -5,8 +5,13 @@ import Playlist from '../ArtistDetailComponent/Playlist'
 import Albums from './Albums'
 import About from './About'
 import Fans from './Fans'
+import { useRoute } from '@react-navigation/native'
 
 export default function ArtistDetails({ navigation }) {
+
+    const route = useRoute();
+    const { item } = route.params;
+
     useEffect(() => {
         navigation.setOptions({
             headerTransparent: true,
@@ -23,15 +28,15 @@ export default function ArtistDetails({ navigation }) {
         }} >
             <ScrollView showsVerticalScrollIndicator={false}>
                 {/* header */}
-                <Header />
+                <Header item={item} />
                 {/* List songs */}
-                <Playlist />
+                <Playlist item={item.songs} />
                 {/* Albums */}
-                <Albums />
+                <Albums item={item} />
                 {/* About */}
-                <About />
+                <About item={item} />
                 {/* fan also like */}
-                <Fans />
+                <Fans item={item} />
             </ScrollView>
         </View>
     )

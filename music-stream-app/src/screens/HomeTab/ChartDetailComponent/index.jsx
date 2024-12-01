@@ -16,6 +16,8 @@ export default function ChartDetails({ navigation }) {
             headerTitle: '',
             headerBackTitleVisible: false,
         })
+
+
     }, [])
 
     return (

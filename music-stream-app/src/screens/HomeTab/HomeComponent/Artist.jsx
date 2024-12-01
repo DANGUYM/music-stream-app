@@ -1,27 +1,26 @@
 import { View, Text, Pressable, FlatList, Image, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 export default function Artist({ navigation }) {
 
     const [artists, setArtists] = useState([
-        {
-            id: 1,
-            image: require('../../../img/Home - Audio Listing/Image 39.png'),
-            name: 'Jennifer Wilson'
-        },
-        {
-            id: 2,
-            image: require('../../../img/Home - Audio Listing/Image 40.png'),
-            name: 'Elizabeth Hall'
-        },
-        {
-            id: 3,
-            image: require('../../../img/Home - Audio Listing/Image 41.png'),
-            name: 'Billie Eilish'
-        },
-
-
     ]);
+
+    const readData = () => {
+        const db = getDatabase();
+        const dbRef = ref(db, 'artist');
+
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val().filter(item => item !== undefined);
+            setArtists(data);
+        });
+    };
+
+
+    useEffect(() => {
+        readData();
+    }, [])
     return (
         <View style={{
             marginTop: 20,
@@ -53,9 +52,17 @@ export default function Artist({ navigation }) {
                         alignItems: 'center',
                     }}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('ArtistDetailComponent')}
+                            onPress={() => navigation.navigate('ArtistDetailComponent', { item: item })}
+                            style={{
+                                alignItems: 'center',
+                            }}
                         >
-                            <Image source={item.image}
+                            <Image source={{ uri: item.image }}
+                                style={{
+                                    width: 150,
+                                    height: 150,
+                                    borderRadius: 100,
+                                }}
                             />
                             <Text style={{
                                 color: 'gray',
@@ -67,10 +74,13 @@ export default function Artist({ navigation }) {
                             backgroundColor: '#000000',
                             padding: 10,
                             borderRadius: 30,
-                            marginTop: 10
+                            marginTop: 10,
+                            width: 100,
+
                         }}>
                             <Text style={{
                                 color: '#ffffff',
+                                textAlign: 'center',
                             }}>Follow</Text>
                         </Pressable>
                     </View>

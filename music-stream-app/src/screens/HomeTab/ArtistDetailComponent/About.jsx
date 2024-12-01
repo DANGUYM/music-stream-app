@@ -1,11 +1,14 @@
 import { View, Text, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 
-export default function About() {
+export default function About({ item }) {
 
-    const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, "
+    const content = item.about;
     const [showMore, setShowMore] = useState(false);
+
+    useEffect(() => {
+    }, []);
 
     return (
         <View style={{
@@ -19,7 +22,10 @@ export default function About() {
 
             <View>
                 <View>
-                    <Image source={require('../../../img/Artist Profile/Image 73.png')} />
+                    <Image source={{ uri: item.image }} style={{
+                        width: "100%",
+                        height: 200,
+                    }} />
                 </View>
                 <Text style={{
                     marginTop: 10,

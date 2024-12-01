@@ -6,19 +6,16 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 export default function Playlist({ item }) {
 
-
-
     const [songs, setSongs] = useState([])
 
     useEffect(() => {
-        console.log(item);
         if (item === undefined) return;
         // Lọc bỏ giá trị undefined và chuyển đổi dữ liệu phù hợp với cấu trúc của state songs
         const filteredData = item.filter(item => item !== undefined).map((item, index) => ({
             id: songs.length + index + 1, // Tạo id mới
             title: item.name,
             artist: item.artists,
-            duration: `${Math.floor(item.duration / 60)}:${('0' + (item.duration % 60)).slice(-2)}`, // Chuyển đổi thời gian
+            duration: item.duration, // Chuyển đổi thời gian
             fileSize: `${item.size} MB`,
             image: { uri: item.image }, // Dùng uri cho ảnh từ link
         }));

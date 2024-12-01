@@ -21,7 +21,6 @@ export default function Chart({ navigation }) {
 
     useEffect(() => {
         readData();
-        console.log(chart);
     }, [])
 
     return (

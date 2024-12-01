@@ -1,96 +1,29 @@
 import { View, Text, Image, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Feather from '@expo/vector-icons/Feather';
 import Entypo from '@expo/vector-icons/Entypo';
 import { TouchableOpacity } from 'react-native';
 
 
-export default function Playlist() {
+export default function Playlist({ item }) {
 
-    const [songs, setSongs] = useState([
-        {
-            id: 1,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 2,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 3,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 4,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 5,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 6,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 7,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 8,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 9,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
-        {
-            id: 10,
-            title: 'FLOWER',
-            artist: 'Artist 1',
-            duration: '3:36',
-            fileSize: '5.2 MB',
-            image: require('../../../img/Playlist Details - Audio Listing/Image 54.png'),
-        },
+    const [songs, setSongs] = useState([])
 
-    ])
+    useEffect(() => {
+        if (item === undefined) return;
+        // Lọc bỏ giá trị undefined và chuyển đổi dữ liệu phù hợp với cấu trúc của state songs
+        const filteredData = item.filter(item => item !== undefined).map((item, index) => ({
+            id: songs.length + index + 1, // Tạo id mới
+            title: item.name,
+            artist: item.artist,
+            duration: item.duration,  // Chuyển đổi thời gian
+            fileSize: `${item.size} MB`,
+            image: { uri: item.image }, // Dùng uri cho ảnh từ link
+        }));
 
+        // Cập nhật state với dữ liệu mới
+        setSongs(prevSongs => [...filteredData]);
+    }, [])
     return (
         <View style={{
             marginTop: 20,
@@ -155,7 +88,11 @@ export default function Playlist() {
                         <View style={{
                             marginRight: 10,
                         }}>
-                            <Image source={require("../../../img/Playlist Details - Audio Listing/Image 54.png")} />
+                            <Image source={item.image} style={{
+                                width: 70,
+                                height: 70,
+                                borderRadius: 10,
+                            }} />
                         </View>
                         <View>
                             <Text style={{

@@ -2,6 +2,8 @@ import { View, Text, TextInput } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { getDatabase, ref, set, update, onValue, push, remove } from 'firebase/database';
+
 
 export default function Title() {
     return (
