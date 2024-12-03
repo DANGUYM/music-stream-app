@@ -34,4 +34,9 @@ public class ChartController {
     public ResponseEntity<?> getTracksByChartId(@PathVariable Long id) {
         return ResponseEntity.ok(chartService.getChartById(id));
     }
+
+    @GetMapping
+    public ResponseEntity<?> getAllCharts() {
+        return ResponseEntity.ok(chartService.getAllCharts());
+    }
 }
