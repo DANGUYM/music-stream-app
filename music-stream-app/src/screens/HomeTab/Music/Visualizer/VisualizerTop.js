@@ -22,11 +22,11 @@ const VisualizerTop = ({isPlaying}) => {
   }, [isPlaying]);
 
   const renderBars = (data, size) => {
-    const barWidth = (size / data.length) * 3;
+    const barWidth = (size / data.length) * 4;
     const barSpacing = 2;
 
     return data.map((value, index) => {
-      const barHeight = value / 4;
+      const barHeight = value / 2;
       const x = index * (barWidth + barSpacing);
       const colorIndex = index / data.length;
       const fillColor = `rgb(${Math.floor(255 * colorIndex)}, 50, ${Math.floor(255 * (1 - colorIndex))})`;
@@ -48,8 +48,8 @@ const VisualizerTop = ({isPlaying}) => {
 
   return (
     <View style={styles.container}>
-      <Svg height={50} width={250}>
-        {renderBars(levels, 50)}
+      <Svg height={80} width={293}>
+        {renderBars(levels, 80)}
       </Svg>
     </View>
   );

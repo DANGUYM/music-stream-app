@@ -1,7 +1,7 @@
 
 
 import { View, Text } from 'react-native';
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Header from './Header';
 import Playlist from '../ChartDetailComponent/Playlist';
 import { useRoute } from '@react-navigation/native';
@@ -9,8 +9,23 @@ import { ThemeContext } from '../../../context/ThemeContext';
 
 export default function ChartDetails({ navigation }) {
   const route = useRoute();
-  const { item } = route.params;
+  const { id } = route.params;
   const { darkMode } = useContext(ThemeContext);
+  const [chartDetails, setChartDetails] = useState(null);
+
+  const fetchChartDetails = async () => {
+    try {
+      const response = await fetch(`http://192.168.1.15:8080/charts/${id}`);
+      const data = await response.json();
+      setChartDetails(data);
+    } catch (error) {
+      console.error('Error fetching chart details:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchChartDetails();
+  }, []);
 
   useEffect(() => {
     navigation.setOptions({
@@ -20,12 +35,14 @@ export default function ChartDetails({ navigation }) {
     });
   }, []);
 
+  if (!chartDetails) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <View style={{ padding: 20, flex: 1, backgroundColor: darkMode ? '#121212' : '#fff' }}>
-      {/* header */}
-      <Header item={item} />
-      {/* List songs */}
-      <Playlist item={item.songs} navigation={navigation} />
+      <Header item={chartDetails} />
+      <Playlist songs={chartDetails.tracks} navigation={navigation} />
     </View>
   );
 }

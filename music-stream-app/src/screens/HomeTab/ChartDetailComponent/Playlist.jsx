@@ -1,21 +1,14 @@
-
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import Entypo from '@expo/vector-icons/Entypo';
-import songs from '../../../context/songsData';
 import VisualizerCurrentSong from '../Music/Visualizer/VisualizerCurrentSong';
 import { MusicContext } from '../Music/Music/MusicContext';
 import { ThemeContext } from '../../../context/ThemeContext';
 
-export default function Playlist({ navigation }) {
-  const [playlist, setPlaylist] = useState([]);
+export default function Playlist({ songs, navigation }) {
   const { currentSong, isPlaying, playSound } = useContext(MusicContext);
   const { darkMode } = useContext(ThemeContext);
-
-  useEffect(() => {
-    setPlaylist(songs);
-  }, []);
 
   return (
     <View style={{ flex: 1, backgroundColor: darkMode ? '#121212' : '#fff' }}>
@@ -33,16 +26,16 @@ export default function Playlist({ navigation }) {
         <FlatList
           style={{ marginTop: 20, flex: 1 }}
           keyExtractor={(item) => item.id.toString()}
-          data={playlist}
+          data={songs}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => playSound(item)}>
+            <TouchableOpacity onPress={() => navigation.navigate('Music', { song: item, songs })}>
               <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 7 }}>
                 <View style={{ marginRight: 10 }}>
-                  <Image source={item.image} style={{ width: 70, height: 70 }} />
+                  <Image source={{ uri: item.image }} style={{ width: 70, height: 70 }} />
                 </View>
                 <View style={{ width: 268 }}>
-                  <Text style={{ fontSize: 20, color: darkMode ? '#fff' : '#000' }}>{item.name}</Text>
-                  <Text style={{ color: 'gray' }}>{item.artists}</Text>
+                  <Text style={{ fontSize: 20, color: darkMode ? '#fff' : '#000' }}>{item.title}</Text>
+                  <Text style={{ color: 'gray' }}>{item.artist}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Feather name="play" size={12} color="gray" />
                     <Text style={{ color: 'gray' }}>{item.duration}</Text>
