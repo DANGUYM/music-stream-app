@@ -1,22 +1,23 @@
 import { View, Text, FlatList, Image, ImageBackground, Modal, StyleSheet, Dimensions, Button, TextInput } from 'react-native'
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useContext } from 'react'
 import Fontisto from '@expo/vector-icons/Fontisto';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
 import { Animated } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import { ThemeContext } from '../../../context/ThemeContext';
 
 
 export default function ListFeed() {
 
+    const { darkMode } = useContext(ThemeContext);
     const [feeds, setFeeds] = useState([
         {
             id: 1,
             nameArtist: 'Jessica Gonzalez',
             time: '3d',
-            image: require('../../../img/Feed - Audio Listing/Avatar 4.png'),
-            imageBackground: require('../../../img/Feed - Audio Listing/Image 93.png'),
+            image: require('../../../../assets/img/Feed - Audio Listing/Avatar 4.png'),
+            imageBackground: require('../../../../assets/img/Feed - Audio Listing/Image 93.png'),
             title: 'FLOWER',
             views: '125',
             duration: '05:15',
@@ -28,8 +29,8 @@ export default function ListFeed() {
             id: 2,
             nameArtist: 'William King',
             time: '5d',
-            image: require('../../../img/Feed - Audio Listing/Avatar 5.png'),
-            imageBackground: require('../../../img/Feed - Audio Listing/Image 94.png'),
+            image: require('../../../../assets/img/Feed - Audio Listing/Avatar 5.png'),
+            imageBackground: require('../../../../assets/img/Feed - Audio Listing/Image 94.png'),
             title: 'Me',
             views: '245',
             duration: '05:15',
@@ -81,6 +82,7 @@ export default function ListFeed() {
                             }}>
                                 <Text style={{
                                     fontWeight: 'bold',
+                                    color: darkMode ? '#fff' : '#000',
                                 }}>{item.nameArtist} <Fontisto name="checkbox-active" size={10} color="blue" /></Text>
                                 <Text style={{
                                     color: 'gray',
@@ -152,6 +154,7 @@ export default function ListFeed() {
                                             width: '100%',
                                             height: '70%',
                                             padding: 20,
+                                            backgroundColor: darkMode ? '#121212' : '#fff'
                                         }}>
                                             <View style={{
                                                 flexDirection: 'row',
@@ -160,8 +163,9 @@ export default function ListFeed() {
                                                 <Text style={{
                                                     fontSize: 20,
                                                     fontWeight: 'bold',
+                                                    color: darkMode ? '#fff' : '#000'
                                                 }}>3 comments </Text>
-                                                <AntDesign name="down" size={24} color="black"
+                                                <AntDesign name="down" size={24} color="gray"
                                                     onPress={toggleModal}
                                                 />
                                             </View>
@@ -170,7 +174,7 @@ export default function ListFeed() {
                                                 flexDirection: 'row',
                                                 alignItems: 'center',
                                             }}>
-                                                <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 8.png')}
+                                                <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 8.png')}
                                                     style={{
                                                         width: 50,
                                                         height: 50,
@@ -186,8 +190,11 @@ export default function ListFeed() {
                                                         <View style={{ flexDirection: 'row' }}>
                                                             <Text style={{
                                                                 fontWeight: 'bold',
+                                                                color: darkMode ? '#fff' : '#000',
                                                             }}>Sally Rooney</Text>
-                                                            <Text> Do duis cul </Text>
+                                                            <Text
+                                                            style={{color: darkMode ? '#fff' : '#000'}}
+                                                            > Do duis cul </Text>
                                                         </View>
                                                         <View style={{ flexDirection: 'row' }}>
                                                             <Text style={{
@@ -214,7 +221,7 @@ export default function ListFeed() {
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 50,
                                                             height: 50,
@@ -231,8 +238,12 @@ export default function ListFeed() {
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         fontWeight: 'bold',
+                                                                        color: darkMode ? '#fff' : '#000',
                                                                     }}>Jason</Text>
-                                                                    <Text> Minim magna exc</Text>
+                                                                    <Text style={{
+                                                                        color: darkMode ? '#fff' : '#000',
+                                                                    }}
+                                                                    > Minim magna exc</Text>
                                                                 </View>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
@@ -256,7 +267,7 @@ export default function ListFeed() {
                                                     alignItems: 'center',
                                                     marginLeft: 60,
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 30,
                                                             height: 30,
@@ -273,14 +284,23 @@ export default function ListFeed() {
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         fontWeight: 'bold',
+                                                                        color: darkMode ? '#fff' : '#000',
                                                                     }}>Michael Key</Text>
                                                                     <Text style={{
                                                                         color: 'blue',
                                                                     }}>@ Jason Smitth</Text>
-                                                                    <Text> Deserunt</Text>
+                                                                    <Text style={{
+                                                                        color: darkMode ? '#fff' : '#000',
+                                                                    }}
+                                                                    
+                                                                    > Deserunt</Text>
 
                                                                 </View>
-                                                                <Text> offcia consectetur adipi</Text>
+                                                                <Text style={{
+                                                                    color: darkMode ? '#fff' : '#000',
+                                                                }}
+                                                                
+                                                                > offcia consectetur adipi</Text>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         color: 'gray',
@@ -306,7 +326,7 @@ export default function ListFeed() {
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 11.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 11.png')}
                                                         style={{
                                                             width: 50,
                                                             height: 50,
@@ -323,8 +343,13 @@ export default function ListFeed() {
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         fontWeight: 'bold',
+                                                                        color: darkMode ? '#fff' : '#000',
                                                                     }}>Liam Pham</Text>
-                                                                    <Text> Commodo</Text>
+                                                                    <Text style={{
+                                                                        color: darkMode ? '#fff' : '#000',
+                                                                    }}
+                                                                    
+                                                                    > Commodo</Text>
                                                                 </View>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
@@ -348,7 +373,7 @@ export default function ListFeed() {
                                                     alignItems: 'center',
                                                     marginLeft: 60,
                                                 }}>
-                                                    <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 9.png')}
+                                                    <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 9.png')}
                                                         style={{
                                                             width: 30,
                                                             height: 30,
@@ -365,11 +390,15 @@ export default function ListFeed() {
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         fontWeight: 'bold',
+                                                                        color: darkMode ? '#fff' : '#000',
                                                                     }}>Kiran Glaucus</Text>
-                                                                    <Text> Esse consequat cillum</Text>
+                                                                    <Text style={{
+                                                                        color: 'blue',
+                                                                    }}
+                                                                    
+                                                                    > Esse consequat cillum</Text>
 
                                                                 </View>
-                                                                <Text> ex</Text>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <Text style={{
                                                                         color: 'gray',
@@ -399,7 +428,7 @@ export default function ListFeed() {
                                                 flexDirection: 'row',
                                                 marginTop: 20,
                                             }}>
-                                                <Image source={require('../../../img/Feed - Comment on an Audio/Avatar 13.png')} />
+                                                <Image source={require('../../../../assets/img/Feed - Comment on an Audio/Avatar 13.png')} />
                                                 <View style={{
                                                     flexDirection: 'row',
                                                     marginLeft: 10,
@@ -409,8 +438,10 @@ export default function ListFeed() {
                                                     width: '85%',
                                                 }}>
                                                     <TextInput placeholder="Write a comment..."
+                                                    placeholderTextColor={darkMode ? '#fff' : 'gray'}
                                                         style={{
                                                             padding: 10,
+                                                            
                                                         }}
                                                     />
                                                 </View>

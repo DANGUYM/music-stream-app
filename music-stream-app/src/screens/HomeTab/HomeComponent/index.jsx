@@ -21,7 +21,7 @@ export default function Index({ navigation, toggleModal }) {
                 <Title />
 
                 {/* suggestion */}
-                <Suggestion />
+                <Suggestion/>
 
                 {/* chart */}
 

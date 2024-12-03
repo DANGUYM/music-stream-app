@@ -1,29 +1,23 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import songs from '../songs';
+import songs from '../../../context/songsData';
 import Choice from './Choice';
+import { ThemeContext } from '../../../context/ThemeContext';
 
-const MusicLibrary = ({navigation}) => {
+const MusicLibrary = ({ navigation }) => {
+  const { darkMode } = useContext(ThemeContext);
+
   const renderSongItem = ({ item }) => (
     <View style={styles.songContainer}>
       <Image source={item.image} style={styles.songImage} />
       <View style={styles.songInfo}>
-        <Text style={styles.songTitle}>{item.title}</Text>
-        <Text style={styles.songArtist}>{item.artist}</Text>
-
-        <View style={styles.songViewsDuration} >
-        <Text style={styles.songViews}>{item.views}</Text>
-        <Text style={styles.songDuration}>{item.duration}</Text>
+        <Text style={[styles.songTitle, { color: darkMode ? '#fff' : '#000' }]}>{item.name}</Text>
+        <Text style={styles.songArtist}>{item.artists}</Text>
+        <View style={styles.songViewsDuration}>
+          <Text style={styles.songViews}>{item.views}</Text>
+          <Text style={styles.songDuration}>{item.duration}</Text>
         </View>
-        
       </View>
       <TouchableOpacity>
         <Icon name="heart-outline" size={24} color="#1DB954" />
@@ -32,8 +26,8 @@ const MusicLibrary = ({navigation}) => {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Your Library</Text>
+    <View style={[styles.container, { backgroundColor: darkMode ? '#121212' : '#fff' }]}>
+      <Text style={[styles.headerText, { color: darkMode ? '#fff' : '#000' }]}>Your Library</Text>
       <Choice navigation={navigation} />
       <FlatList
         data={songs}
@@ -80,7 +74,7 @@ const styles = StyleSheet.create({
   songViewsDuration: {
     flexDirection: 'row',
   },
-  songViews:{
+  songViews: {
     color: '#888',
     fontSize: 12,
     marginRight: 10,
