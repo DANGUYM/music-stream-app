@@ -8,9 +8,13 @@ import Albums from './Albums';
 import About from './About';
 import Fans from './Fans';
 import { ThemeContext } from '../../../context/ThemeContext';
+import { useRoute } from '@react-navigation/native';
 
 export default function ArtistDetails({ navigation }) {
   const { darkMode } = useContext(ThemeContext);
+
+  const route = useRoute();
+  const { item } = route.params;
 
   useEffect(() => {
     navigation.setOptions({
@@ -24,15 +28,15 @@ export default function ArtistDetails({ navigation }) {
     <View style={{ padding: 20, flex: 1, backgroundColor: darkMode ? '#121212' : '#fff' }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* header */}
-        <Header />
+        <Header item={item} />
         {/* List songs */}
-        <Playlist />
+        <Playlist item={item.tracks} />
         {/* Albums */}
-        <Albums />
+        <Albums item={item} />
         {/* About */}
-        <About />
+        <About item={item} />
         {/* fan also like */}
-        <Fans />
+        <Fans item={item} />
       </ScrollView>
     </View>
   );

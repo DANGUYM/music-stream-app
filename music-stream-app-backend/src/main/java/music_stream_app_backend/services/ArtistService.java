@@ -35,7 +35,13 @@ public class ArtistService {
 
     public List<ArtistResponseDTO> getAllArtists() {
         return artistRepository.findAll().stream()
-                .map(artist -> ArtistResponseDTO.fromEntity(artist))
+                .map(artist -> ArtistResponseDTO.builder()
+                        .id(artist.getId())
+                        .name(artist.getName())
+                        .image(artist.getImage())
+                        .description(artist.getDescription())
+                        .tracks(trackService.getTracksByArtistId(artist.getId()))
+                        .build())
                 .toList();
     }
 }

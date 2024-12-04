@@ -46,4 +46,10 @@ public class TrackService {
                 .map(track -> TrackResponseDTO.fromEntity(track))
                 .toList();
     }
+
+    public List<TrackResponseDTO> search(String searchText) {
+        return trackRepository.search(searchText).stream()
+                .map(track -> TrackResponseDTO.fromEntity(track))
+                .toList();
+    }
 }

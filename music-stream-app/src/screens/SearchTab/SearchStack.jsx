@@ -1,13 +1,18 @@
-import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native'
-import React, { useState,useContext } from 'react'
+import { View, Text, TextInput, FlatList, StyleSheet, Image } from 'react-native'
+import React, { useState, useContext } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { ThemeContext } from '../../context/ThemeContext';
+import Feather from '@expo/vector-icons/Feather';
+import Entypo from '@expo/vector-icons/Entypo';
+import { URL } from '../../utils/url';
 
 
 export default function SearchStack() {
 
   const { darkMode } = useContext(ThemeContext);
 
+
+  const [searchInput, setSearchInput] = useState('');
 
   const [categoryList, setCategoryList] = useState([
     {
@@ -29,19 +34,37 @@ export default function SearchStack() {
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
-    const [searchText, setSearchText] = useState('');
+
+  const [songs, setSongs] = useState([
+  ])
+
+  const search = async () => {
+    try {
+      const response = await fetch(`${URL}/tracks/search/${searchInput}`);
+      const data = await response.json();
+      setSongs(data);
+    } catch (error) {
+      console.error('Error fetching chart details:', error);
+    }
+  };
+
   return (
     <View style={{
       padding: 20,
-      flex: 1,
-      backgroundColor: darkMode ? '#121212' : '#fff' 
+      marginTop: 10,
     }}>
-      <TextInput
-        style={[styles.searchInput, { backgroundColor: darkMode ? '#333' : '#ccc', color: darkMode ? '#fff' : '#000' }]}
-        placeholder="Search"
-        placeholderTextColor={darkMode ? '#888' : '#666'}
-        value={searchText}
-        onChangeText={setSearchText}
+      <TextInput placeholder="Search"
+        value={searchInput}
+        onChangeText={text => setSearchInput(text)}
+        keyboardType="default"
+        onSubmitEditing={search} // Gọi hàm khi nhấn Enter
+        style={{
+          backgroundColor: '#f5f5f5',
+          padding: 8,
+          borderRadius: 30,
+          borderWidth: 1,
+          borderColor: 'gray',
+        }}
       />
 
       <FlatList
@@ -57,16 +80,64 @@ export default function SearchStack() {
             <TouchableOpacity
               onPress={() => setSelectedCategory(item.name)}
             >
-              <Text style={[{color: darkMode ? 'gray' : '#000'},styles.container, selectedCategory == item.name && styles.selectedCategory]}>{item.name}</Text>
+              <Text style={[styles.container, selectedCategory == item.name && styles.selectedCategory]}>{item.name}</Text>
             </TouchableOpacity>
           </View>
         )}
       />
 
-
+      <FlatList
+        style={{
+          marginTop: 20,
+        }}
+        keyExtractor={(item) => item.id.toString()}
+        data={songs}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item, index }) => (
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginVertical: 7,
+          }}>
+            <View style={{
+              marginRight: 10,
+            }}>
+              <Image source={{ uri: item.image }} style={{ width: 70, height: 70 }} />
+            </View>
+            <View>
+              <Text style={{
+                fontSize: 20,
+              }}>{item.title}</Text>
+              <Text style={{
+                color: 'gray'
+              }}>{item.artist}</Text>
+              <View style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+                <Feather name="play" size={12} color="gray" />
+                <Text style={{
+                  color: 'gray'
+                }}>{item.duration}</Text>
+                <Entypo name="dot-single" size={20} color="gray" />
+                <Text style={{
+                  color: 'gray'
+                }}>{item.fileSize}</Text>
+              </View>
+            </View>
+            <Entypo name="dots-three-horizontal" size={24} color="black"
+              style={{
+                position: 'absolute',
+                right: 0,
+              }}
+            />
+          </View>
+        )}
+      />
     </View>
   )
 }
+
 
 const styles = StyleSheet.create({
   container: {

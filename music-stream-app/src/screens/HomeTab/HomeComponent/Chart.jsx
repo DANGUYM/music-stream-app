@@ -4,13 +4,15 @@ import { View, Text, TouchableOpacity, Pressable, Image, FlatList } from 'react-
 import React, { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from '../../../context/ThemeContext';
 
+import { URL } from '../../../utils/url';
+
 export default function Chart({ navigation }) {
   const [chart, setChart] = useState([]);
   const { darkMode } = useContext(ThemeContext);
 
   const readData = async () => {
     try {
-      const response = await fetch('http://192.168.1.15:8080/charts');
+      const response = await fetch(URL + '/charts');
       const data = await response.json();
       setChart(data);
     } catch (error) {

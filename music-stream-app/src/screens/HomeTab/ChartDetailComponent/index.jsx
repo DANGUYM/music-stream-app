@@ -6,6 +6,7 @@ import Header from './Header';
 import Playlist from '../ChartDetailComponent/Playlist';
 import { useRoute } from '@react-navigation/native';
 import { ThemeContext } from '../../../context/ThemeContext';
+import { URL } from '../../../utils/url';
 
 export default function ChartDetails({ navigation }) {
   const route = useRoute();
@@ -15,7 +16,7 @@ export default function ChartDetails({ navigation }) {
 
   const fetchChartDetails = async () => {
     try {
-      const response = await fetch(`http://192.168.1.15:8080/charts/${id}`);
+      const response = await fetch(`${URL}/charts/${id}`);
       const data = await response.json();
       setChartDetails(data);
     } catch (error) {
