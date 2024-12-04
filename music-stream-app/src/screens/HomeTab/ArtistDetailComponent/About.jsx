@@ -19,7 +19,8 @@ export default function About({ item }) {
       <Text style={{
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        color: darkMode ? '#fff' : '#000',
       }}>About</Text>
 
       <View>

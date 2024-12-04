@@ -23,6 +23,7 @@ export default function Header({ item }) {
         fontSize: 20,
         fontWeight: 'bold',
         marginTop: 10,
+        color: darkMode ? '#fff' : '#000',
       }}> {item.name} </Text>
       <Text style={{
         color: 'gray',

@@ -1,6 +1,5 @@
 
-
-import { View, Text, ScrollView } from 'react-native';
+import { View, FlatList } from 'react-native';
 import React, { useEffect, useContext } from 'react';
 import Header from './Header';
 import Playlist from '../ArtistDetailComponent/Playlist';
@@ -24,20 +23,22 @@ export default function ArtistDetails({ navigation }) {
     });
   }, []);
 
+  const sections = [
+    { key: 'header', render: () => <Header item={item} /> },
+    { key: 'playlist', render: () => <Playlist songs={item.tracks} navigation={navigation} /> },
+    { key: 'albums', render: () => <Albums item={item} /> },
+    { key: 'about', render: () => <About item={item} /> },
+    { key: 'fans', render: () => <Fans item={item} /> },
+  ];
+
   return (
     <View style={{ padding: 20, flex: 1, backgroundColor: darkMode ? '#121212' : '#fff' }}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* header */}
-        <Header item={item} />
-        {/* List songs */}
-        <Playlist item={item.tracks} />
-        {/* Albums */}
-        <Albums item={item} />
-        {/* About */}
-        <About item={item} />
-        {/* fan also like */}
-        <Fans item={item} />
-      </ScrollView>
+      <FlatList
+        data={sections}
+        renderItem={({ item }) => item.render()}
+        keyExtractor={(item) => item.key}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 }
